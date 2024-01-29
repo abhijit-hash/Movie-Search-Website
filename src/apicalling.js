@@ -9,7 +9,7 @@ const AppProvider = ({ children }) => {
     const [movie, setMovie] = useState([]);
     const [isError, setIsError] = useState({ show: "false", msg: "" });
     const [query, setQuery] = useState("titanic");
-    const getMovies = async (url) => {
+    const getMovies = async(url) => {
         setIsLoading(true);
         try {
             const res = await fetch(url);
@@ -19,12 +19,10 @@ const AppProvider = ({ children }) => {
                 setIsLoading(false);
                 setMovie(data.Search);
                 setIsError({ show: "false", msg: "" });
-            }
-            else {
+            } else {
                 setIsError({ show: "true", msg: data.Error });
             }
-        }
-        catch (error) {
+        } catch (error) {
             console.log(error);
         }
     };
@@ -33,15 +31,14 @@ const AppProvider = ({ children }) => {
             getMovies(`${API_URL}&s=${query}`);
         }, 500);
         return () => clearTimeout(timeOut);
-    },[query]);
+    }, [query]);
 
-    return <AppContext.Provider value={{ isLoading, isError, movie,query, setQuery }}>
-        {children}
-    </AppContext.Provider>
+    return <AppContext.Provider value = {
+            { isLoading, isError, movie, query, setQuery } } > { children } </AppContext.Provider>
 };
 
 const useGlobalContext = () => {
     return useContext(AppContext);
 }
 
-export { useGlobalContext,AppContext,AppProvider };
+export { useGlobalContext, AppContext, AppProvider };

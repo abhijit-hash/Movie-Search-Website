@@ -1,6 +1,6 @@
 import React,{ useEffect, useState } from 'react';
 import { NavLink, useParams} from 'react-router-dom';
-import { API_URL } from './context';
+import { API_URL } from './apicalling';
 
 const SingleMovies = () => {
     const { id } = useParams();

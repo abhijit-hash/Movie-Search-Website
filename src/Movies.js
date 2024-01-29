@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGlobalContext } from './context';
+import { useGlobalContext } from './apicalling';
 import { NavLink } from 'react-router-dom';
 
 const Movies = () => {

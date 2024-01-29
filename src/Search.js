@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGlobalContext } from './context';
+import { useGlobalContext } from './apicalling';
 
 const Search = () => {
     const { query, setQuery,isError } = useGlobalContext();
